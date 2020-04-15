@@ -61,7 +61,7 @@ There is also an Android Wear (4.4W) component that allows you to control your v
 	* `cd controller/connected_car_controller/`
 * Install python modules:
 	* `pip install -r requirements.txt`
-* Run the project: `python3 start_controller.py bmw-e46`
+* Run the project: `python3 start_controller.py R53`
 
 ### 3. Android Mobile / Tablet
 * Update `BluetoothInterface.remoteBluetoothAddress` of 'connected_car_app/common' with RPi Bluetooth address

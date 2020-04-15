@@ -42,7 +42,7 @@ if __name__ == "__main__":
 
     # parse command line arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument("controller_type", help="The name of the controller, for example 'bmw-e46'")
+    parser.add_argument("controller_type", help="The name of the controller, for example 'bmw-e46' or 'R53'")
     args = parser.parse_args()
 
     # start the controller

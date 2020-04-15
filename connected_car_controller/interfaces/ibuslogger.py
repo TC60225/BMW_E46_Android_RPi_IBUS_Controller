@@ -38,7 +38,8 @@ class IBusLoggerInterface(BaseInterface):
         """Creates a new thread that listens for an incoming IBusLogger RFCOMM connection."""
         LOGGER.info('connect IBusLogger interface...')
 
-        self.file = open(self.logfile, 'w', newline='')
+        # line buffered file
+        self.file = open(self.logfile, 'w', newline='', buffering=1)
         self.CSV = csv.DictWriter(self.file, fieldnames=['timestamp', 'source_id', 'destination_id', 'data', 'length'])
         self.CSV.writeheader()
 

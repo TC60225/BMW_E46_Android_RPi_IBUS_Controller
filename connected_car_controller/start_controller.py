@@ -38,7 +38,7 @@ def start_controller(controller_type):
 if __name__ == "__main__":
     # setup logging
     log_format = '%(asctime)s [%(levelname)s] [%(filename)s] [%(lineno)s] %(message)s'
-    logging.basicConfig(level=logging.DEBUG, format=log_format)
+    logging.basicConfig(level=logging.INFO, format=log_format)
 
     # parse command line arguments
     parser = argparse.ArgumentParser()

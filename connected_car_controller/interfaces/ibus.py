@@ -145,6 +145,7 @@ class IBUSInterface(BaseInterface):
                 packet = IBUSPacket(packet)
                 if packet.is_valid():
                     packets.append(packet)
+                    LOGGER.debug('%s, %s, %r' % (IBUSPacket.get_device_name(packet['source_id']), IBUSPacket.get_device_name(packet['destination_id']), packet))
                 else:
                     LOGGER.error('invalid packet : %r', packet)
 
@@ -222,7 +223,7 @@ class IBUSPacket(dict):
                 True if the packet is valid, False if the packet is invalid
 
         """
-        return self['xor_checksum'] == self.calculate_xor_checksum()
+        return self['xor_checksum'][0] == self.calculate_xor_checksum()
 
     @staticmethod
     def get_device_name(device_id):
@@ -315,4 +316,4 @@ class IBUSPacket(dict):
         for key in self['raw'][:-1]:
             checksum = checksum ^ key
 
-        return chr(checksum)
+        return checksum

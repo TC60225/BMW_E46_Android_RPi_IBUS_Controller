@@ -1,52 +1,52 @@
-"""
-The e46.py module is responsible for BMW E46 vehicles.
+# """
+# The e46.py module is responsible for BMW E46 vehicles.
 
-Car Production: March 1998 - February 2005
-Reference: https://en.wikipedia.org/wiki/BMW_3_Series_(E46)
+# Car Production: March 1998 - February 2005
+# Reference: https://en.wikipedia.org/wiki/BMW_3_Series_(E46)
 
-"""
-import logging
+# """
+# import logging
 
-from controllers.base import BaseController
+# from controllers.base import BaseController
 
-from interfaces.ibus import IBUSInterface
-from interfaces.bt import BluetoothInterface
-
-
-LOGGER = logging.getLogger(__name__)
+# from interfaces.ibus import IBUSInterface
+# from interfaces.bt import BluetoothInterface
 
 
-class E46Controller(BaseController):
-    """Controller definition for BMW E46 Vehicles"""
+# LOGGER = logging.getLogger(__name__)
 
-    __controller_name__ = 'bmw-e46'
 
-    def __init__(self):
-        super(E46Controller, self).__init__()
-        self.bluetooth = BluetoothInterface(self)  # interface available for clients
-        self.ibus = IBUSInterface(self)  # interface connected to the vehicle
+# class E46Controller(BaseController):
+#     """Controller definition for BMW E46 Vehicles"""
 
-        # bind interfaces to each other
-        self.bluetooth.bind_receive(self.ibus.send)
-        self.ibus.bind_receive(self.bluetooth.send)
+#     __controller_name__ = 'bmw-e46'
 
-    def start(self):
-        """Invoked when the controller is starting."""
-        LOGGER.info('starting the controller services...')
+#     def __init__(self):
+#         super(E46Controller, self).__init__()
+#         self.bluetooth = BluetoothInterface(self)  # interface available for clients
+#         self.ibus = IBUSInterface(self)  # interface connected to the vehicle
 
-        # connect to the necessary interfaces
-        self.ibus.connect()
-        self.bluetooth.connect()
-        self.state = self.__states__.STATE_RUNNING
-        LOGGER.info('all services have been started')
+#         # bind interfaces to each other
+#         self.bluetooth.bind_receive(self.ibus.send)
+#         self.ibus.bind_receive(self.bluetooth.send)
 
-        # run until "Ctrl-C" is pressed
-        self.loop_until_ctrl_c()
+#     def start(self):
+#         """Invoked when the controller is starting."""
+#         LOGGER.info('starting the controller services...')
 
-    def stop(self):
-        """Invoked when the controller should stop."""
-        LOGGER.info('ending the controller services...')
-        self.state = self.__states__.STATE_STOPPED
-        self.ibus.disconnect()
-        self.bluetooth.disconnect()
+#         # connect to the necessary interfaces
+#         self.ibus.connect()
+#         self.bluetooth.connect()
+#         self.state = self.__states__.STATE_RUNNING
+#         LOGGER.info('all services have been started')
+
+#         # run until "Ctrl-C" is pressed
+#         self.loop_until_ctrl_c()
+
+#     def stop(self):
+#         """Invoked when the controller should stop."""
+#         LOGGER.info('ending the controller services...')
+#         self.state = self.__states__.STATE_STOPPED
+#         self.ibus.disconnect()
+#         self.bluetooth.disconnect()
 

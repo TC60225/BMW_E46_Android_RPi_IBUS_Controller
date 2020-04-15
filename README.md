@@ -2,19 +2,8 @@
 
 ## Overview 
 
-There are three main components of the solution:
-* Android Tablet - Primary front-end device for interacting with the car
-* Raspberry Pi - Mini-PC that handles communication between the IBUS adapter and the Android device
-* IBUS USB Adapter - USB adapter that provides USB/UART interface from physical wire in car
-
-![Android_RPi_IBUS_Overview](https://s3-us-west-1.amazonaws.com/connected-car-static-files/connected_car_overview2.png)
-
-There is also an Android Wear (4.4W) component that allows you to control your vehicle from your smart watch!
-* Android Wear Device - Secondary device that provides quick interactions with the car
-
-![Android_WEAR_IBUS_Overview](https://s3-us-west-1.amazonaws.com/connected-car-static-files/IBUS+Wear+UI+On+G+Watch.png)
-
 ## Pre-Requisites
+
 ### 1. Car Installation
 * Remove OEM Navigation Head Unit from BMW
 * Tap the 12V (red) wire, the GND (black) wire, and the IBUS (red/white/yellow) wire

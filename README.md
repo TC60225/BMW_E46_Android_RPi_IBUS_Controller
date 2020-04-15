@@ -58,7 +58,7 @@ There is also an Android Wear (4.4W) component that allows you to control your v
 	* `apt-get install build-essential bluez bluez-tools libbluetooth-dev`
 * Download project
 	* `git clone https://github.com/TC60225/RASPI-IBUS-Controller.git`
-	* `cd controller/connected_car_controller/`
+	* `cd RASPI-IBUS-Controller/connected_car_controller`
 * Install python modules:
 	* `pip install -r requirements.txt`
 * Run the project: `python3 start_controller.py R53`

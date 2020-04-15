@@ -1,19 +1,4 @@
-<p align="center"><img src="https://s3-us-west-1.amazonaws.com/connected-car-static-files/connected_car_logo_padded_blue.png" width="70%" style=""></p>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-![Python](https://img.shields.io/badge/python-v3.6+-blue.svg)
-![Dependencies](https://img.shields.io/librariesio/github/TrentSeed/BMW_E46_Android_RPi_IBUS_Controller.svg)
-[![GitHub Issues](https://img.shields.io/github/issues/TrentSeed/BMW_E46_Android_RPi_IBUS_Controller.svg)](https://github.com/TrentSeed/BMW_E46_Android_RPi_IBUS_Controller/issues)
-![Last Updated](https://img.shields.io/github/last-commit/TrentSeed/BMW_E46_Android_RPi_IBUS_Controller.svg)
-![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
-<br/><br/>
-
 "Appify" your E46 BMW with a Raspberry Pi and your Smartphone! This repository contains the IBUS controller, as well as the Android application which supports smart phones and wearables. This is to be used with the IBUS USB interface which can be acquired from [Reslers.de](http://www.reslers.de/IBUS/), or from Amazon/eBay.
-
-Blog Series on Medium:
-- [Connecting a BMW to the Internet: Part One](https://medium.com/design-and-tech-co/connecting-a-bmw-to-the-internet-part-one-fbe18a54121d)
-- [Connecting a BMW to the Internet: Part Two](https://medium.com/@trentseed/connecting-a-bmw-to-the-internet-part-two-1ee2ea44d4a2)
-- [Connecting a BMW to the Internet: Part Three](https://medium.com/@trentseed/connecting-a-bmw-to-the-internet-part-three-89fb322b1dcb)
 
 ## Overview 
 
@@ -39,23 +24,10 @@ There is also an Android Wear (4.4W) component that allows you to control your v
 * Connect IBUS USB adapter to Raspberry Pi via USB cable
 * Connect Ethernet cable to Raspberry Pi (and wire to glove box)
 
-### 2. Raspberry Pi 3
-* Install Raspbian (or another OS that supports python)
-    * One tutorial [can be found here](http://computers.tutsplus.com/articles/how-to-flash-an-sd-card-for-raspberry-pi--mac-53600)
-* Pair Android device with Raspberry Pi via Bluetooth
+### 2. Raspberry Pi
 
-#### 2a. Running with Docker
-* Install docker and docker-compose
-	* `curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh`
-	* `pip install docker-compose`
-* Download project and run with docker-compose
-	* `git clone https://github.com/TrentSeed/BMW_E46_Android_RPi_IBUS_Controller controller`
-	* `cd controller/connected_car_controller/`
-	* `docker-compose up --build -d`
-
-#### 2b. Running without Docker
 * Install packages
-	* `apt-get install build-essential bluez bluez-tools libbluetooth-dev`
+	* `sudo apt-get install build-essential bluetooth bluez bluez-tools libbluetooth-dev`
 * Download project
 	* `git clone https://github.com/TC60225/RASPI-IBUS-Controller.git`
 	* `cd RASPI-IBUS-Controller/connected_car_controller`

@@ -57,7 +57,7 @@ There is also an Android Wear (4.4W) component that allows you to control your v
 * Install packages
 	* `apt-get install build-essential bluez bluez-tools libbluetooth-dev`
 * Download project
-	* `git clone https://github.com/TrentSeed/BMW_E46_Android_RPi_IBUS_Controller controller`
+	* `git clone https://github.com/TC60225/RASPI-IBUS-Controller.git`
 	* `cd controller/connected_car_controller/`
 * Install python modules:
 	* `pip install -r requirements.txt`

@@ -48,6 +48,7 @@ class BaseInterface(object):
         path = os.path.join(
             os.path.dirname(os.path.abspath(__file__)), '..', 'etc', 'config.ini'
         )
+        LOGGER.info('reading config file: %s' % (path))
         parser = ConfigParser()  # TODO: verify works; was SafeConfigParser
         parser.read(path)
         section = 'interfaces.{}'.format(self.__interface_name__)

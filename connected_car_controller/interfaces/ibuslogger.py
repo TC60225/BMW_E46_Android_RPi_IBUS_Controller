@@ -30,6 +30,7 @@ class IBusLoggerInterface(BaseInterface):
         super(IBusLoggerInterface, self).__init__()
         self.controller = controller
         self.logfile = self.get_setting('logfile')
+        self.file = None
         self.CSV = None
         self.thread = None
 
@@ -37,7 +38,8 @@ class IBusLoggerInterface(BaseInterface):
         """Creates a new thread that listens for an incoming IBusLogger RFCOMM connection."""
         LOGGER.info('connect IBusLogger interface...')
 
-        self.CSV = csv.DictWriter(open(self.logfile, 'w', newline=''), fieldnames=['timestamp', 'source_id', 'destination_id', 'data', 'length'])
+        self.file = open(self.logfile, 'w', newline='')
+        self.CSV = csv.DictWriter(self.file, fieldnames=['timestamp', 'source_id', 'destination_id', 'data', 'length'])
         self.CSV.writeheader()
 
         self.thread = threading.Thread(target=self.PollFolderForMessages)
@@ -56,6 +58,7 @@ class IBusLoggerInterface(BaseInterface):
         """
         LOGGER.info('disconnect IBusLogger interface...')
         self.state = self.__states__.STATE_DISCONNECTING
+        self.file.close()
 
         self.state = self.__states__.STATE_READY
 

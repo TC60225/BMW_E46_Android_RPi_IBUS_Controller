@@ -40,7 +40,7 @@ class IBusLoggerInterface(BaseInterface):
 
         # line buffered file
         self.file = open(self.logfile, 'w', newline='', buffering=1)
-        self.CSV = csv.DictWriter(self.file, fieldnames=['timestamp', 'source_id', 'destination_id', 'data', 'length'])
+        self.CSV = csv.DictWriter(self.file, fieldnames=['timestamp', 'source_id', 'destination_id', 'data', 'length', 'raw', 'xor_checksum'])
         self.CSV.writeheader()
 
         self.thread = threading.Thread(target=self.PollFolderForMessages)
@@ -80,7 +80,9 @@ class IBusLoggerInterface(BaseInterface):
         try:
             LOGGER.info('logging IBUSPacket(s)...')
             for packet in data:
-                self.CSV.writerow(packet.as_serializable_dict())
+                dictPacket = packet.as_serializable_dict()
+                dictPacket['data'] = dictPacket['data'].hex()
+                self.CSV.writerow(dictPacket)
 
         except Exception:
             # socket was closed, graceful restart

@@ -155,6 +155,8 @@ class IBUSInterface(BaseInterface):
         if self.receive_hook and hasattr(self.receive_hook, '__call__'):
             self.receive_hook(packets)
 
+        # DEBUG return packets
+
     def send(self, data):
         """
         Writes the provided hex packet(s) to the bus
@@ -291,9 +293,9 @@ class IBUSPacket(dict):
 
         """
         return {
-            'source_id': binascii.hexlify(self['source_id']),
-            'length': binascii.hexlify(self['length']),
-            'destination_id': binascii.hexlify(self['destination_id']),
+            'source_id': self['source_id'],
+            'length': self['length'],
+            'destination_id': self['destination_id'],
             'data': binascii.hexlify(self['data']),
             'xor_checksum': binascii.hexlify(self['xor_checksum']),
             'raw': binascii.hexlify(self['raw']),
